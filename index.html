@@ -1,129 +1,28 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <meta charset="utf-8">
-  <link rel="stylesheet" type="text/css" href="stylesheet.css">
-</head>
-<body>
-  <h1>Press one of the Keys Below</h1>
-  <h2>A = Rock</h2>
-  <h2>B = Paper</h2>
-  <h2>C = Scissors</h2>
-  <div class="keys">
-    <div>
-      <button id="Rock">Rock</button>
+  <head>
+    <meta charset="utf-8" />
+    <link rel="stylesheet" type="text/css" href="stylesheet.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1>Rock Paper Scissors</h1>
+      <h2>R = Rock</h2>
+      <h2>P = Paper</h2>
+      <h2>S = Scissors</h2>
+      <div class="keys">
+        <div>
+          <button data-key="r" id="Rock">Rock</button>
+        </div>
+        <div>
+          <button data-key="p" id="Paper">Paper</button>
+        </div>
+        <div>
+          <button data-key="s" id="Scissors">Scissors</button>
+        </div>
+      </div>
+      <div id="scoreBoard"></div>
     </div>
-    <div>
-      <button id="Paper">Paper</button>
-    </div>
-    <div> 
-      <button id="Scissors">Scissors</button>
-    </div>
-  </div>
-  <div id="scoreBoard">
-
-  </div>
-  <script>
-    let playerSelection = '';
-    let playerCount = 0, computerCount = 0;
-             
-                 const btn = document.querySelectorAll('button');
-                 btn.forEach((button) => {
-                  button.addEventListener('click', () => {
-                  playerSelection = button.id;
-                  playerSelection = playerSelection.toUpperCase();
-                  computerSelection = computerPlay();
-                  let decision = playRound(playerSelection,computerSelection);
-                  if (decision == 'W'){
-                    playerCount++;
-                  }
-                  else if (decision =='L'){
-                    computerCount++
-                  }
-                  const div = document.querySelector('#scoreBoard');
-                  const p = document.createElement('p');
-                  p.textContent = 'Player Score: ' + playerCount + ' Computer Score: ' + computerCount;
-                  div.appendChild(p);
-                  if (playerCount == 5)
-                  alert('You have Won!')
-                  else if (computerCount == 5)
-                  alert('You have lost!');
-                   });
-                   });
-              
-              
-
-                function computerPlay(){
-                                let computerchoice = Math.floor(Math.random() * Math.floor(3));
-                                if (computerchoice == 0)
-                                                return 'Rock';
-                                else if (computerchoice == 1)
-                                                return 'Paper';
-                return 'Scissors';
-                }
-                function playRound(playerSelection, computerSelection){
-                                if (playerSelection == 'ROCK' && computerSelection == 'Rock'){
-                                                alert('Tied');
-                                                return 'T';
-                                }
-                                else if (playerSelection == 'ROCK' && computerSelection == 'Paper'){
-                                                alert('You Lose! Paper beats Rock');
-                                                return 'L';
-                                }
-                                else if (playerSelection == 'ROCK' && computerSelection == 'Scissors'){
-                                                alert('You Win! Rock beats Scissors');
-                                                return 'W';
-                                }
-                                if (playerSelection == 'PAPER' && computerSelection == 'Rock'){
-                                                alert('You Win! Paper beats Rock');
-                                                return 'W';
-                                }
-                                else if (playerSelection == 'PAPER' && computerSelection == 'Paper'){
-                                                alert('Tied');
-                                                return 'T';
-                                }
-                                else if (playerSelection == 'PAPER' && computerSelection == 'Scissors'){
-                                                alert('You Lose! Scissors beat paper');
-                                                return 'L';
-                                }
-                                if (playerSelection == 'SCISSORS' && computerSelection == 'Rock'){
-                                                alert('You Lose! Rock beats Scissors');
-                                                return 'L';
-                                }
-                                else if (playerSelection == 'SCISSORS' && computerSelection == 'Paper'){
-                                                alert('You Win! Scissors beats Paper');
-                                                return 'W';
-                                }
-                                else if (playerSelection == 'SCISSORS' && computerSelection == 'Scissors'){
-                                                alert('Tied');
-                                                return 'T';
-                                }
-                                return 'Please pick either rock paper or scissors'
-                }
-               /* function game(){
-                  let count = 5;
-                  let player = 0, computer = 0;
-                                for(i = 0; i<count; i++){
-                                         let computerSelection = computerPlay();
-                                               let outcome = playRound(playerSelection,computerSelection);
-                                               if (outcome == 'W'){
-                                                  player++;
-                                                  alert('Player Score: ' + player);
-                                                  if (player == 3)
-                                                  break;
-                                               }
-                                               else if (outcome == 'T')
-                                                               count++;
-                                               else if (outcome == 'L'){
-                                                  computer++;
-                                                  alert('Computer Score: ' + computer);
-                                                  if (computer == 3)
-                                                  break;
-                                               }
-                                               else count++;
-                                }
-                }
-                game();*/
-  </script>
-</body>
+    <script src="script.js"></script>
+  </body>
 </html>
